@@ -4,8 +4,6 @@ class CreateGames < ActiveRecord::Migration[5.2]
       t.string :title
       t.string :release
       t.integer :score
-
-      t.timestamps
     end
     add_index :games, :title
     add_index :games, :score

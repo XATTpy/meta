@@ -16,8 +16,6 @@ ActiveRecord::Schema.define(version: 2019_04_22_104507) do
     t.string "title"
     t.string "release"
     t.integer "score"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.index ["score"], name: "index_games_on_score"
     t.index ["title"], name: "index_games_on_title"
   end
@@ -25,8 +23,6 @@ ActiveRecord::Schema.define(version: 2019_04_22_104507) do
   create_table "genres", force: :cascade do |t|
     t.string "genre"
     t.integer "game_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.index ["game_id"], name: "index_genres_on_game_id", unique: true
     t.index ["genre"], name: "index_genres_on_genre"
   end
@@ -34,8 +30,6 @@ ActiveRecord::Schema.define(version: 2019_04_22_104507) do
   create_table "platforms", force: :cascade do |t|
     t.string "platform"
     t.integer "game_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.index ["game_id"], name: "index_platforms_on_game_id", unique: true
     t.index ["platform"], name: "index_platforms_on_platform"
   end
@@ -43,8 +37,6 @@ ActiveRecord::Schema.define(version: 2019_04_22_104507) do
   create_table "ratings", force: :cascade do |t|
     t.string "rating"
     t.integer "game_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.index ["game_id"], name: "index_ratings_on_game_id", unique: true
     t.index ["rating"], name: "index_ratings_on_rating"
   end
@@ -54,8 +46,6 @@ ActiveRecord::Schema.define(version: 2019_04_22_104507) do
     t.string "pic"
     t.string "developer"
     t.integer "game_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.index ["game_id"], name: "index_summaries_on_game_id", unique: true
   end
 
