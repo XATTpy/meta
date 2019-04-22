@@ -7,5 +7,7 @@ class CreateGames < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+    add_index :games, :title
+    add_index :games, :score
   end
 end

@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 2019_04_22_104507) do
     t.integer "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["score"], name: "index_games_on_score"
+    t.index ["title"], name: "index_games_on_title"
   end
 
   create_table "genres", force: :cascade do |t|
@@ -26,6 +28,7 @@ ActiveRecord::Schema.define(version: 2019_04_22_104507) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["game_id"], name: "index_genres_on_game_id", unique: true
+    t.index ["genre"], name: "index_genres_on_genre"
   end
 
   create_table "platforms", force: :cascade do |t|
@@ -34,6 +37,7 @@ ActiveRecord::Schema.define(version: 2019_04_22_104507) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["game_id"], name: "index_platforms_on_game_id", unique: true
+    t.index ["platform"], name: "index_platforms_on_platform"
   end
 
   create_table "ratings", force: :cascade do |t|
@@ -42,6 +46,7 @@ ActiveRecord::Schema.define(version: 2019_04_22_104507) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["game_id"], name: "index_ratings_on_game_id", unique: true
+    t.index ["rating"], name: "index_ratings_on_rating"
   end
 
   create_table "summaries", force: :cascade do |t|

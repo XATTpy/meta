@@ -6,5 +6,6 @@ class CreateRatings < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+    add_index :ratings, :rating
   end
 end
