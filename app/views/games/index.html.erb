@@ -1,16 +1,16 @@
 <%= render "index_1" %>
 
 <% @games.each do |game| %>
-  <div class="w3-third w3-container">
-    <h5><%= game.title %></h5>
+  <div class="w3-half w3-container">
+    <h6><%= game.title %></h6>
   </div>
 
-  <div class="w3-third w3-container">
-    <h5><%= game.release %></h5>
+  <div class="w3-quarter w3-container">
+    <h6><%= game.release %></h6>
   </div>
         
-  <div class="w3-third w3-container">
-    <h5><%= game.score %></h5>
+  <div class="w3-quarter w3-container">
+    <h6><%= game.score %></h6>
   </div>
 <% end %>
 
