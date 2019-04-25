@@ -1,8 +1,9 @@
 class GamesController < ApplicationController
   def index
+    @params = params
     @page = params['page'].to_i
     start = @page * 100
-    finish = start + 100
+    
     if params['filter'] == 'top100'
       if params['platform'] != nil
         plat = params['platform']
@@ -10,8 +11,18 @@ class GamesController < ApplicationController
       else
         @games = Game.order(score: :desc).first(100)
       end
+
+    elsif params['filter'] == 'genre'
+      genre = params['genre']
+      @games = Game.joins(:genre).where("genre LIKE '%#{genre}%'").order(score: :desc).limit(100).offset(start)
+    
+    elsif params['text'] != nil
+      text = params['text']
+      @games = Game.where("title LIKE '%#{text}%'").order(score: :desc)
+
     else
-      @games = Game.where("id > #{start} AND id <= #{finish}")
+      @games = Game.limit(100).offset(start)
     end
+
   end
 end

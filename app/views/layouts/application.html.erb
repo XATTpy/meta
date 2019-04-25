@@ -47,8 +47,33 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
       <a href="?filter=top100&platform=Game Boy Advance" class="w3-bar-item w3-button">Game Boy Advance</a>
     </div>
   </div>
-</div> 
+  <div class="w3-dropdown-hover">
+    <a class="w3-button">Best in Genre</a>
+    <div class="w3-dropdown-content w3-bar-block w3-card-4">
+      <a href="?filter=genre&genre=Action" class="w3-bar-item w3-button">Action</a>
+      <a href="?filter=genre&genre=Adventure" class="w3-bar-item w3-button">Adventure</a>
+      <a href="?filter=genre&genre=Role-playing" class="w3-bar-item w3-button">Role-playing</a>
+      <a href="?filter=genre&genre=Simulation" class="w3-bar-item w3-button">Simulation</a>
+      <a href="?filter=genre&genre=Strategy" class="w3-bar-item w3-button">Strategy</a>
+      <a href="?filter=genre&genre=Sports" class="w3-bar-item w3-button">Sports</a>
+    </div>
+  
+  
+  
+  </div>
+  <form>
+    <input type="search" name="text" class="w3-bar-item w3-input w3-grey w3-mobile" placeholder="Search by title...">
+    <input type="submit" class="w3-bar-item w3-button w3-theme w3-mobile" value="Go">
+  </form>
+ </div>
+ 
 </div>
+
+<footer id="myFooter">
+  <div class="w3-container w3-theme-l2 w3-padding-32">
+    <h4>All information taken from <a href='https://www.metacritic.com/'>metacritic.com</a></h4>
+  </div>
+</footer>
 
 <!-- Overlay effect when opening sidebar on small screens -->
 <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
