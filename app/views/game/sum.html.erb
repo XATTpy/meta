@@ -1,4 +1,19 @@
-<h1>Game#sum</h1>
-<p>Find me in app/views/game/sum.html.erb</p>
-<%= @game.summary.summary %>
-<%= @params %>
+<table>
+  <tbody>
+
+    <div class="w3-main w3-center" style="margin-left:20%; margin-right:20%">
+        <div class="w3-row w3-padding-64">
+            <h1 class="w3-text-teal"><%= @game.title %></h1>
+            <img src=<%= @game.summary.pic %> class="img-responsive">
+            <p><b>Summary: </b><%= @game.summary.summary %></p>
+            <p><b>Release Date: </b><%= @game.release %></p>
+            <p><b>Metascore: </b><%= @game.score %></p>
+            <p><b>Genre(s): </b><%= @game.genre.genre %></p>
+            <p><b>Platform: </b><%= @game.platform.platform %></p>
+            <p><b>Rating: </b><%= @game.rating.rating %></p>
+            <p><b>Developer: </b><%= @game.summary.developer %></p>
+        </div>
+    </div>
+
+  </tbody>
+</table>

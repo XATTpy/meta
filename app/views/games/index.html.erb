@@ -2,7 +2,7 @@
 
 <% @games.each do |game| %>
   <div class="w3-half w3-container">
-    <h6><%= game.title %> (<%= game.platform.platform %>) </h6>
+    <a href="/game/sum?id=<%= game.id %>"><h6><%= game.title %> (<%= game.platform.platform %>)</h6></a>
   </div>
 
   <div class="w3-quarter w3-container">
