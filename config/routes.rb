@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'game/sum'
   get 'games/index'
-  get 'sum/:text', to: 'games#index', as: :text
+  get 'games/nothing'
 
   root 'games#index'
 end

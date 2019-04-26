@@ -3,6 +3,10 @@ class GamesController < ApplicationController
     @params = params
     @page = params['page'].to_i
     start = @page * 100
+
+    if @page < 0 or @page > 112
+      return redirect_to '/games/nothing'
+    end
     
     if params['filter'] == 'top100'
       if params['platform'] != nil
@@ -19,10 +23,17 @@ class GamesController < ApplicationController
     elsif params['text'] != nil
       text = params['text']
       @games = Game.where("title LIKE '%#{text}%'").order(score: :desc)
+      if @games.size == 0
+        return redirect_to '/games/nothing'
+      end
 
     else
       @games = Game.limit(100).offset(start)
     end
 
   end
+
+  def nothing
+  end
+  
 end
