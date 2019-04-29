@@ -22,6 +22,9 @@ class GamesController < ApplicationController
     
     elsif params['text'] != nil
       text = params['text']
+      if text == ''
+        return redirect_to '/'
+      end      
       @games = Game.where("title LIKE '%#{text}%'").order(score: :desc)
       if @games.size == 0
         return redirect_to '/games/nothing'
@@ -34,6 +37,9 @@ class GamesController < ApplicationController
   end
 
   def nothing
+    if params['text'] != nil
+      return redirect_to "/?text=#{params['text']}"
+    end
   end
   
 end
