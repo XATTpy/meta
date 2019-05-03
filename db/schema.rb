@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2019_04_22_104507) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "games", force: :cascade do |t|
     t.string "title"
     t.string "release"
@@ -22,21 +25,21 @@ ActiveRecord::Schema.define(version: 2019_04_22_104507) do
 
   create_table "genres", force: :cascade do |t|
     t.string "genre"
-    t.integer "game_id"
+    t.bigint "game_id"
     t.index ["game_id"], name: "index_genres_on_game_id", unique: true
     t.index ["genre"], name: "index_genres_on_genre"
   end
 
   create_table "platforms", force: :cascade do |t|
     t.string "platform"
-    t.integer "game_id"
+    t.bigint "game_id"
     t.index ["game_id"], name: "index_platforms_on_game_id", unique: true
     t.index ["platform"], name: "index_platforms_on_platform"
   end
 
   create_table "ratings", force: :cascade do |t|
     t.string "rating"
-    t.integer "game_id"
+    t.bigint "game_id"
     t.index ["game_id"], name: "index_ratings_on_game_id", unique: true
     t.index ["rating"], name: "index_ratings_on_rating"
   end
@@ -45,8 +48,12 @@ ActiveRecord::Schema.define(version: 2019_04_22_104507) do
     t.text "summary"
     t.string "pic"
     t.string "developer"
-    t.integer "game_id"
+    t.bigint "game_id"
     t.index ["game_id"], name: "index_summaries_on_game_id", unique: true
   end
 
+  add_foreign_key "genres", "games"
+  add_foreign_key "platforms", "games"
+  add_foreign_key "ratings", "games"
+  add_foreign_key "summaries", "games"
 end
