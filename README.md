@@ -11,3 +11,5 @@
 * How to run the test suite: $ rails s
 
 * Deployment instructions: Use Capistrano for deployment
+
+* URL: http://xatt-rails-meta.tk
